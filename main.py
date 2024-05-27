@@ -10,7 +10,7 @@ def setup_logging():
 
 def get_all_links(url, base_url):
     try:
-        response = requests.get(url)
+        response = requests.get(url, verify=False)  # Disable SSL verification
         response.raise_for_status()
     except requests.RequestException as e:
         logging.error(f"Failed to fetch {url}: {e}")
